@@ -3,7 +3,7 @@
 
 
 import pandas as pd
-clean_data=pd.read_csv('/TweetvsRetweet/Data_Cleaned.csv')
+clean_data=pd.read_csv('../TweetvsRetweet/Data_Cleaned.csv')
 
 clean_data=clean_data.drop('Unnamed: 0',axis=1)
 comment_clean=clean_data.loc[clean_data['check']==1]
@@ -71,6 +71,12 @@ torch.cuda.get_device_name(0)
 
 """
 
+import tensorflow as tf
+
+device_name = tf.test.gpu_device_name()
+if device_name != '/device:GPU:0':
+  raise SystemError('GPU device not found')
+print('Found GPU at: {}'.format(device_name))
 model_name = "bert-base-cased"
 #model_name = "bert-base-uncased"
 transformer = AutoModel.from_pretrained(model_name)
