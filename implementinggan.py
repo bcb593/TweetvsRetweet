@@ -131,8 +131,8 @@ def format_time(elapsed):
     # Format as hh:mm:ss
     return str(datetime.timedelta(seconds=elapsed_rounded))
 
-input_tweet=data_loader(tweet,8,do_shuffle=False)
-input_comment=data_loader(comment,8,do_shuffle=False)
+input_tweet=data_loader(tweet,64,do_shuffle=False)
+input_comment=data_loader(comment,64,do_shuffle=False)
 
 class Discriminator(nn.Module):
     def __init__(self):
